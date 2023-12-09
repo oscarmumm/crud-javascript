@@ -22,6 +22,17 @@ function agregarEmpleado() {
     inputPuesto.value = "";
 }
 
+inputNombre.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){
+        e.preventDefault();
+    };
+})
+inputPuesto.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){
+        e.preventDefault();
+    };
+})
+
 function renderizarTabla() {
     limpiarTabla();
     listaEmpleados.forEach((el) => {
@@ -91,8 +102,6 @@ function editarEmpleado(e) {
 function eliminarEmpleado(e) {
     //acá obtenemos el ID
     let idTarget = e.target.parentNode.parentNode.firstChild.textContent;
-    console.log(idTarget)
-    console.log(listaEmpleados)
     listaEmpleados = listaEmpleados.filter((el) => el.id !== idTarget);
     renderizarTabla();
 }
